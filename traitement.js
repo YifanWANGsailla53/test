@@ -1,7 +1,7 @@
 //enregistrer le worker si c'est pas deja fait
 
 	if ( 'serviceWorker' in navigator ) {
-		navigator.serviceWorker.register('serviceWorker.js').then(function(registration) {
+		navigator.serviceWorker.register('/test/serviceWorker.js', {scope: '/test/'}).then(function(registration) {
 		// Registration was successful
 			console.log('ServiceWorker registration successful with scope: ', registration.scope);
 		}).catch(function(err) {
