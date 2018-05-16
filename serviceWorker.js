@@ -2,6 +2,15 @@ var toCache=['/index.html','/styles.css','/serviceWorker.js','/treatment.js'];
 
 self.addEventListener('install', event => {//lors du chargement de index.html
   console.log("ServiceWorker en cours d'installation…");
+	event.waitUntil(
+    caches.open('geoLocCaching').then(function(cache) {
+      return cache.addAll([
+        '/test/',
+        '/test/traitement.js',
+        '/test/index.html'     
+      ]);
+    })
+  );
 });
 
 self.addEventListener('activate', event => {
