@@ -18,7 +18,7 @@ self.addEventListener('activate', event => {
 	//application experimentale, on ne gère pas les versions de cache
 	event.waitUntil(caches.open('geoLocCaching')
 	.then(cache=>{return cache.addAll( toCache );})
-	.then(=>{self.clients.claim();})
+	.then(self.clients.claim())
 	.catch(e=>{console.log("Error handling cache", e})
 	console.log('ServiceWorker activé!');
 });
