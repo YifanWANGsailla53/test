@@ -31,22 +31,25 @@ self.addEventListener('fetch', event => {
     // Opens Cache objects that start with 'font'.
     caches.open(geoLocCaching).then(function(cache) {
       return cache.match(event.request).then(function(response) {
+	      
         if (response) {
           console.log('Réponse trouvée dans le cache:', response);
           return response;
         }
+	      
         console.log('Réponse à charger sur le serveur');
+	      
         return fetch(event.request).then(function(networkResponse) {
           cache.put(event.request, networkResponse.clone());
-		  document.getElementById("connection").innerHTML="Online";//on vient d'utiliser la connection
-          return networkResponse;
-        });
+	  document.getElementById("connection").innerHTML="Online";//on vient d'utiliser la connection
+          return networkResponse; });
+	      
       }).catch(function(error) {
         // Handles exceptions that arise from match() or fetch().
 		document.getElementById("connection").innerHTML="Offline";//il n'y a plus de connection fiable
         console.error('Erreur dans le chargement:', error);
         throw error;
       });
-    });
-  );
+	    
+    }); )
 });
