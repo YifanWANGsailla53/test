@@ -7,7 +7,7 @@ self.addEventListener('install', event => {//lors du chargement de index.html
 self.addEventListener('activate', event => {
 	//chargement anticipé des pages puisqu'on vise un fonctionnement offline
 	//application experimentale, on ne gère pas les versions de cache
-	event.waitUntil{caches.open('geoLocCaching')
+	event.waitUntil{caches.open('geoLocCaching')}
 	.then(cache=>{return cache.addAll( toCache );})
 	.then(=>{self.clients.claim();})
 	.catch(e=>{console.log("Error handling cache", e})
