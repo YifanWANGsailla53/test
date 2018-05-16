@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+	<meta charset="utf-8">
+	<Title>Geolocalisation offline</Title>
+</HEAD>
+<!--importer les formats CSS-->
+<link rel="styles.css" type="text/css" href="styles.css">
+<BODY>
+Solution de Geolocalisation<br>
+Chargée en mode <i id='connection'>offline</i><br>
+<!--afficher la position GPS-->
+Position GPS
+<table id='tablePosition'>
+	<tr>
+		<th>Latitude</th>
+		<th>Longitude</th>
+		<th>Précision</th>
+		<th>Dernière mise à jour</th>
+		  <!-- <p id="para">Some text here</p> -->
+		<th><button onclick="refreshGPS();">Mettre à jour</button></th>
+	</tr>
+	<tr>
+		<td id='latitude'></td>
+		<td id='longitude'></td>
+		<td id='precision'></td>
+		<td id='miseAjour'></td>
+		<td></td>
+	</tr>
+</table>
+<!--boutons pour partager la connection avec sms et email-->
+<table>
+Partager ma position
+	<tr>
+		<th>Destinataire</th>
+		<th>Envoyer un...<th>
+	</tr>
+	<tr>
+		<td><input id='destEmail' type='text' maxlength=30></td>
+		<td><button onclick="email();">Email</td>
+	</tr>
+	<tr>
+		<td><input id='destSMS' type='number' maxlength=13></td>
+		<td><button onclick="sms();">SMS</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><button onclick="facebook();">Facebook</td>
+	</tr>
+</table>
+</BODY>
+</HTML>
+<!--concentre toutes les fonctions de traitement-->
+<script src="./traitement.js" type="text/javascript"></script>
