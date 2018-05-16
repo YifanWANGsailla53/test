@@ -29,7 +29,7 @@ self.addEventListener('fetch', event => {
   console.log('Redirection de', event.request.url);
   event.respondWith(
     // Opens Cache objects that start with 'font'.
-    caches.open(geoLocCaching).then(function(cache) {
+    caches.open('geoLocCaching').then(function(cache) {
       return cache.match(event.request).then(function(response) {
 	      
         if (response) {
