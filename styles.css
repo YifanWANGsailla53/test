@@ -1,7 +1,7 @@
 body {
-    background-color: lightgrey;
+    background-color: lightyellow;
 	margin-left: 10px;
-	font-size:10px;
+	font-size:15px;
 }
 
 h1 {
@@ -10,7 +10,61 @@ h1 {
 	font-size:40px;
 }
 h2 {
-    color: red;
+    color: green;
     margin-left: 10px;
 	font-size:25px;
+}
+sinfo {
+	color: blue;
+	font-size:15px;
+}
+
+sco1{
+	color:red;
+	font-size:20px;
+}
+
+sco2{
+	font-size:15px;
+}
+
+table{
+	border-collapse:collapse;
+	border-style:solid;
+}
+
+th,td{
+	border-style:solid;
+}
+
+.position table{
+	table-layout:fixed;
+	text-align:center;
+}
+
+.position th{
+	font-size:20px;
+	margin:4px;
+}
+.position td{
+	font-size:25px;
+	font-weight:bold;
+	margin-left:6px;
+	margin-right:6px;
+	margin-top:4px;
+	margin-bottom:4px;
+	/* width:120; */
+	text-align:center;
+}
+button{
+	font-variant:bold;
+	font-size:23px;
+	font-weight:bold;
+	height:100px;
+	width:200px;
+}
+input{
+	font-size:15px;
+	height:70px;
+	width:300px;
 }
