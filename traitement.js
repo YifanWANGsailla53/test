@@ -9,7 +9,6 @@
 		console.log('ServiceWorker registration failed: ', err);
 		});
 	}
-
 refreshGPS();
 var destEmail=localStorage.getItem('destEmail');
 var destSMS=localStorage.getItem('destSMS');
@@ -96,37 +95,17 @@ function sms(){
 	var ecMessage=encodeURIComponent(message);
 	var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
+        var isiOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
 	//var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
 	//var sms='sms://0649624189?body=message';//& pour iOS
 	//window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 	if(isiOS){
-	console.log('ios');
-       document.getElementsByTagName('a')[0].href="sms://"+destSMS+"&body="+ecMessage;}
-else{
-       document.getElementsByTagName('a')[0].href="sms://"+destSMS+"?body="+ecMessage;}
-
-    }
-}
-	
-function doAction(){
-	if(document.getElementById('destSMS').value!=destSMS){
-		console.log("Destinataire SMS enregistré");
-		destSMS=document.getElementById('destSMS').value;
-		localStorage.setItem('destSMS',destSMS);
+		console.log('ios');
+       		window.location.href="sms://"+destSMS+"&body="+ecMessage;
 	}
-     var u = navigator.userAgent;
-     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
-     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
-     var tel= document.getElementById('destSMS').value;
-	localStorage.setItem('destSMS',tel);
-	var ecMessage=encodeURIComponent(message);
-     if(isiOS){
-       document.getElementsByTagName('a')[0].href="sms://"+tel+"?body="+ecMessage;}
-else{
-       document.getElementsByTagName('a')[0].href="sms://"+tel+"&body="+ecMessage;}
+	else{
+       		window.location.href.href="sms://"+destSMS+"?body="+ecMessage;}
 
-    }
-
+    	}
 }
