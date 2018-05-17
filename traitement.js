@@ -105,7 +105,8 @@ function sms(){
        		window.location.href="sms://"+destSMS+"&body="+ecMessage;
 	}
 	else{
-       		window.location.href.href="sms://"+destSMS+"?body="+ecMessage;}
+       		window.location.href.href="sms://"+destSMS+"?body="+ecMessage;
+	}
 
     	}
-}
+
