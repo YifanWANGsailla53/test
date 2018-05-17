@@ -92,9 +92,6 @@ function sms(){
 		destSMS=document.getElementById('destSMS').value;
 		localStorage.setItem('destSMS',destSMS);
 	}
-	var ecMessage=encodeURIComponent(message);
-	console.info(message);
-	console.info(ecMessage);
 	var d=new Date();
 	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+d.getSeconds();
 	document.getElementById("latitude").innerHTML=latitude;
@@ -105,6 +102,8 @@ function sms(){
 	//mise à jour des variables globales
 	message="Mes coordonnées mesurées par l'appli Web Progressive\r\nLatitude: "+latitude+'\r\nLongitude: '+longitude+'\r\nPrécision: '+precision+'\r\nDernière mise à jour: '+miseAjour;
 	console.info(message);
+	var ecMessage=encodeURIComponent(message);
+	console.info(ecMessage);
 	var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
         var isiOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
