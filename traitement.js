@@ -93,12 +93,20 @@ function sms(){
 		localStorage.setItem('destSMS',destSMS);
 	}
 	var ecMessage=encodeURIComponent(message);
+	console.info(message);
+	console.info(ecMessage);
+	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+d.getSeconds();
+	document.getElementById("latitude").innerHTML=latitude;
+	document.getElementById("longitude").innerHTML=longitude;
+	document.getElementById("precision").innerHTML=precision;
+	document.getElementById("miseAjour").innerHTML=miseAjour;
+	console.log("Coordonnées mises à jour");
+	//mise à jour des variables globales
+	message="Mes coordonnées mesurées par l'appli Web Progressive\r\nLatitude: "+latitude+'\r\nLongitude: '+longitude+'\r\nPrécision: '+precision+'\r\nDernière mise à jour: '+miseAjour;
+	console.info(message);
 	var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
         var isiOS = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
-	//var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
-	//var sms='sms://0649624189?body=message';//& pour iOS
-	//window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 	if(isiOS){
 		console.log('ios');
