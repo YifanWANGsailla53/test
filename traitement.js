@@ -94,11 +94,21 @@ function sms(){
 		localStorage.setItem('destSMS',destSMS);
 	}
 	var ecMessage=encodeURIComponent(message);
-	var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
+	var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
+	//var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
 	//var sms='sms://0649624189?body=message';//& pour iOS
-	 document.getElementsByTagName('a')[0].href=sms;
 	//window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
+	if(isiOS){
+	console.log('ios');
+       document.getElementsByTagName('a')[0].href="sms://"+destSMS+"&body="+ecMessage;}
+else{
+       document.getElementsByTagName('a')[0].href="sms://"+destSMS+"?body="+ecMessage;}
+
+    }
+}
 	
 function doAction(){
 	if(document.getElementById('destSMS').value!=destSMS){
