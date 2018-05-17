@@ -96,6 +96,7 @@ function sms(){
 	var ecMessage=encodeURIComponent(message);
 	var sms='sms://'+destSMS+'?body='+ecMessage;//& pour iOS
 	//var sms='sms://0649624189?body=message';//& pour iOS
-	window.location.href=sms;
+	 document.getElementsByTagName('a')[0].href=sms;
+	//window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
 }
