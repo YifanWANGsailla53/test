@@ -95,6 +95,7 @@ function sms(){
 	var ecMessage=encodeURIComponent(message);
 	console.info(message);
 	console.info(ecMessage);
+	var d=new Date();
 	miseAjour=d.getHours()+"h"+d.getMinutes()+":"+d.getSeconds();
 	document.getElementById("latitude").innerHTML=latitude;
 	document.getElementById("longitude").innerHTML=longitude;
