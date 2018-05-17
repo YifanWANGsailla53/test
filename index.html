@@ -4,48 +4,49 @@
 	<Title>Geolocalisation offline</Title>
 </HEAD>
 <!--importer les formats CSS-->
-<link rel="styles.css" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 <BODY>
-Solution de Geolocalisation<br>
-Chargée en mode <i id='connection'>offline</i><br>
+<h1>Déterminer ma position et la partager</h1>
+<sinfo>Chargée en mode <i id='connection'>offline</i><br>
+Worker <i id='worker'>non activé</i></sinfo><br>
 <!--afficher la position GPS-->
-Position GPS
-<table id='tablePosition'>
+<h2>Ma Position GPS</h2>
+<table class='position' id='tablePosition'>
 	<tr>
 		<th>Latitude</th>
 		<th>Longitude</th>
 		<th>Précision</th>
 		<th>Dernière mise à jour</th>
 		  <!-- <p id="para">Some text here</p> -->
-		<th><button onclick="refreshGPS();">Mettre à jour</button></th>
+		<th rowspan=2><button onclick="refreshGPS();">Mettre à jour</button></th>
 	</tr>
 	<tr>
 		<td id='latitude'></td>
 		<td id='longitude'></td>
 		<td id='precision'></td>
 		<td id='miseAjour'></td>
-		<td></td>
 	</tr>
-</table>
-<!--boutons pour partager la connection avec sms et email-->
-<table>
-Partager ma position
+</table><br>
+<!-- <a href="data:application/octet-stream;charset=utf-16le;base64,//5mAG8AbwAgAGIAYQByAAoA">text file</a> -->
+<h2><a id='telecharger'>Telecharger mes coordonnees</a></h2>
+<!-- <a id='telecharger'>Télécharger</a><br><br> -->
+<h2>Partager ma position</h2>
+<table class='envoi'>
 	<tr>
 		<th>Destinataire</th>
-		<th>Envoyer un...<th>
+		<th width=120>Envoyer par<th>
 	</tr>
 	<tr>
-		<td><input id='destEmail' type='text' maxlength=30></td>
+		<td><input id='destEmail' type='text' maxlength=50></td>
 		<td><button onclick="email();">Email</td>
 	</tr>
 	<tr>
-		<td><input id='destSMS' type='number' maxlength=13></td>
+		<td><input id='destSMS' type='number' maxlength=15></td>
 		<td><button onclick="sms();">SMS</td>
 	</tr>
-	<tr>
-		<td></td>
-		<td><button onclick="facebook();">Facebook</td>
-	</tr>
+	<!-- <tr> -->
+		<!-- <td><button onclick="facebook();">Facebook</td> -->
+	<!-- </tr> -->
 </table>
 </BODY>
 </HTML>
