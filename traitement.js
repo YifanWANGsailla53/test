@@ -99,4 +99,24 @@ function sms(){
 	 document.getElementsByTagName('a')[0].href=sms;
 	//window.location.href=sms;
 	console.log("SMS ouvert dans l'application SMS");
+	
+function doAction(){
+	if(document.getElementById('destSMS').value!=destSMS){
+		console.log("Destinataire SMS enregistré");
+		destSMS=document.getElementById('destSMS').value;
+		localStorage.setItem('destSMS',destSMS);
+	}
+     var u = navigator.userAgent;
+     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android
+     var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios
+     var tel= document.getElementById('destSMS').value;
+	localStorage.setItem('destSMS',tel);
+	var ecMessage=encodeURIComponent(message);
+     if(isiOS){
+       document.getElementsByTagName('a')[0].href="sms://"+tel+"?body="+ecMessage;}
+else{
+       document.getElementsByTagName('a')[0].href="sms://"+tel+"&body="+ecMessage;}
+
+    }
+
 }
